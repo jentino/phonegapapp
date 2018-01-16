@@ -2,11 +2,6 @@
     "name": "phonegap-app-heroku",
     "description": "Template for deploying a hosted app to Heroku.",
     "version": "0.0.1",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/jentino/phonegapapp.git"
-    },
-    "private": "false",
     "scripts": {
         "start": "node ./lib/index.js"
     },
