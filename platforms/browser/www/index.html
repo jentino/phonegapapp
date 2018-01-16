@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <base href="/" />
+    <title>BinaryHaven Mobile</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+    <!-- <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" /> -->
+    <link rel="stylesheet" href="dist/css/mobile-angular-ui-hover.min.css" />
+    <link rel="stylesheet" href="dist/css/mobile-angular-ui-base.min.css" />
+    <link rel="stylesheet" href="dist/css/mobile-angular-ui-desktop.min.css" />
+    <link rel="stylesheet" href="css/demo.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/angular.min.js"></script>
+    <!-- <script src="js/angular-route.min.js"></script> -->
+    <script src="dist/js/mobile-angular-ui.min.js"></script>
+    <!-- Required to use $touch, $swipe, $drag and $translate services -->
+    <script src="dist/js/mobile-angular-ui.gestures.min.js"></script>
+    <script src="js/demo.js"></script>
+    <!-- <script src="frontend.js"></script> -->
+    <!-- <script src="angular.min.js"></script> -->
+    <script src="js/angular-websocket.js"></script>
+
+    <!-- <script src="src/js/jquery.min.js"></script> -->
+    <script src="js/angular-round-progress-directive.js"></script>
+    <style>
+      .has-navbar-top .app-body {
+        padding-top: 51px;
+        position: absolute-top;
+        padding-top: 0px;
+    }
+
+    .has-navbar-bottom .app-body {
+      padding-bottom: 0px;
+      }
+
+      </style> 
+  </head>
+
+  <body ng-app="MobileAngularUiExamples" ng-controller="MainController" ui-prevent-touchmove-defaults>
+
+    <!-- Sidebars -->
+    <!-- <div ng-include="'sidebar.html'" ui-track-as-search-param="true" class="sidebar sidebar-left"></div>
+
+    <div ng-include="'sidebarRight.html'" class="sidebar sidebar-right"></div>
+
+    <div class="app" ui-swipe-right="Ui.turnOn('uiSidebarLeft')" ui-swipe-left="Ui.turnOff('uiSidebarLeft')"> -->
+
+      <!-- Navbars -->
+
+      <!-- <div class="navbar navbar-app navbar-absolute-top">
+        <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
+           Home 
+        </div>
+        <div class="btn-group pull-left">
+          <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
+            <i class="fa fa-bars"></i> Menu
+          </div>
+        </div>
+        <div class="btn-group pull-right" ui-yield-to="navbarAction">
+          <div ui-toggle="uiSidebarRight" class="btn sidebar-right-toggle">
+            <i class="fa fa-comment"></i> Chat
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="navbar navbar-app navbar-absolute-bottom">
+        <div class="btn-group justified">
+          <!-- <a href="overlay.html" class="btn btn-navbar"><i class="fa fa-home fa-navbar"></i> Deposit</a>
+          <a href="login.html" class="btn btn-navbar"><i class="fa fa-github fa-navbar"></i> Credits</a> 
+          <a href="scroll.html" class="btn btn-navbar"><i class="fa fa-exclamation-circle fa-navbar"></i> Disclaimer</a>
+        </div>
+      </div>
+
+      <!-- App Body <!-- -->
+      <div class="app-body" ng-class="{loading: loading}">
+        <div ng-show="loading" class="app-content-loading">
+          <i class="fa fa-spinner fa-spin loading-spinner"></i>
+        </div>
+        <div class="app-content">
+          <!-- <ng-view>-->
+
+ <div class="navbar navbar-app navbar-absolute-top" >
+                <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
+                    <h1><b><font color="#fff"> Binary</font><font color="green">Haven</font></b></h1>
+                </div> 
+                
+                <!-- <div class="btn-group pull-left">
+                  <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
+                    <i class="fa fa-bars"></i>
+                  </div>
+                </div> -->
+                
+                <!-- <div class="btn-group pull-right" ui-yield-to="navbarAction">
+                  <div ui-toggle="uiSidebarRight" class="btn sidebar-right-toggle">
+                    <i class="fa fa-comment"></i>
+                  </div>
+                </div> -->
+  
+              </div>
+
+
+              <!-- <div class="navbar navbar-app navbar-absolute-bottom">
+                  <div class="btn-group justified">
+                    <a href="disclaimer.html" class="btn btn-navbar"><i class="fa fa-exclamation-circle fa-navbar"></i> Disclaimer</a>
+                  </div>
+                </div> -->
+
+      <div class="list-group app-body-home"> 
+          
+          <div class="list-group-item list-group-item-homv text-center"><br>
+            <div class="container-fluid section " id="toggleExample">
+             </p>
+                <!-- <i class="fa fa-lightbulb-o"></i> -->
+
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title padleft">
+                      <span class="badge pull-left label-warning">{{ MySecs }}</span>
+                        {{countDownhrs}} hr. {{countDownmin}} min. {{countDownsec}} sec. 
+                      <span class="badge pull-right label-warning">${{profittarget}}</span>
+                    </h3>
+                  </div>
+                  <div class="panel-body text-center">
+                      <ui-knob value="value" options="options"></ui-knob>
+                  </div>
+                  <div class="panel-footer">
+    
+                  </div>
+                </div>
+               
+              <div id="ConnectButtons" class="btn-group justified" ui-shared-state  ui-class="{'text-primary': ConnectButtons}" class="text-default">
+                
+                <a ui-turn-on="ConnectButtons" ui-class="{'active': ConnectButtons}"  class="btn btn-default" ng-click="getConnected()">
+                    {{connectdisplay}}
+                </a>
+                <!-- <a ui-tu rn-off="ConnectButtons" ui-class="{'active': !ConnectButtons}" class="btn btn-default" ng-click="getDisconnected()">
+                    {{disconnectdisplay}}  
+                  </a>  -->
+              </div>
+
+              
+            </div> 
+          </div> 
+          
+          <div class="list-group-item list-group-item-home text-center">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                   {{panelheading}} 
+                  <div class="btn-group pull-right">
+                    <a ui-turn-on="myDropdown{{idx}}" class="btn">
+                      <i class="fa fa-ellipsis-v"></i>
+                    </a>
+                    <ul 
+                      ui-shared-state="myDropdown{{idx}}"
+        
+                      class="dropdown-menu"
+                      ui-outer-click="Ui.turnOff('myDropdown' + idx)"
+                      ui-outer-click-if="Ui.active('myDropdown' + idx)"
+                      role="menu"
+                      ui-show="myDropdown{{idx}}"
+                      ui-turn-off="myDropdown{{idx}}">
+                      
+                      <li><a ng-click="up.datadx('Profit')">Check Profit</a></li>
+                      <li><a ng-click="updateidx('Credits')">Check Credits</a></li>
+                      <!-- <li class="divider"></li>
+                      <li><a>Separated link</a></li> -->
+                    </ul>
+                  </div>
+                  
+                  
+                  <!-- <h3 class="panel-title"> &nbsp;<b ng-repeat="userbalance in updatebalance" >Balance<font color=green> ${{userbalance.balance}}</font></b></h3> -->
+
+                </div>
+                <div class="panel-body">
+                    <!-- <li ng-repeat="pbaritem in pbarvalues">{{pbaritem.pbar}}</li> -->
+                    <!-- <li><button ng-click="">remove</button></li> -->
+                  {{lorem}}
+                </div>
+              </div> 
+              <!-- <div>
+                  <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&amp;receiver=10035198&amp;item_name=Purchase+one+cycle&amp;item_description=This+purchase+grants+you+access+to+one+cycle.&amp;amount=35.00&amp;return_url=http%3A%2F%2Fserene-depths-49662.herokuapp.com%2Fmobile%2F%23%2Fsuccess&amp;cancel_url=http%3A%2F%2Fserene-depths-49662.herokuapp.com%2Fmobile%2F%23%2Fcancel"><img src="https://www.payfast.co.za/images/buttons/light-small-paynow.png" width="165" height="36" alt="Pay" title="Pay Now with PayFast" /></a>
+                  
+                
+                </div> -->
+                <BR><BR>
+                  
+                  <BR><BR> <BR><BR><BR><BR>  <BR><BR><BR><BR> <BR><BR><BR><BR>  <BR><BR><BR><BR>
+                <BR><BR><BR> 
+          </div>
+      </div>
+        </div>
+
+         <!-- </ng-view> -->
+        </div>
+      </div>
+
+    </div><!-- ~ .app -->
+
+    <div ui-yield-to="modals"></div>
+
+    <script src="knob/bower_components/d3/d3.js"></script>
+    <script src="knob/dist/ng-knob.js"></script>
+    <script src="knob/demo/demo.js"></script>
+
+  </body>
+</html>
