@@ -1,25 +1,22 @@
 {
-    "name": "phonegap-app-heroku",
-    "description": "Template for deploying a hosted app to Heroku.",
-    "version": "0.0.1",
-    "scripts": {
-        "start": "node ./lib/index.js"
-    },
+    "name": "websockets-vanilla",
+    "version": "1.0.0",
     "engines": {
-        "node": ">=0.8.0",
-        "npm": ">=1.1.0"
+      "node": "6.2.0"
     },
+    "description": "",
+    "main": "index.html",
+    "scripts": {
+      "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
     "dependencies": {
-        "connect": ">=2.15.0",
-        "connect-phonegap": ">=0.9.1"
-    },
-    "devDependencies": {
-    },
-    "contributors": [
-        {
-            "name": "Michael Brooks",
-            "email": "michael@michaelbrooks.ca",
-            "url": "http://michaelbrooks.ca/"
-        }
-    ]
-}
+      "bufferutil": "1.2.1",
+      "express": "4.13.4",
+      "utf-8-validate": "1.2.1",
+      "ws": "1.1.0"
+    }
+  }
+  
